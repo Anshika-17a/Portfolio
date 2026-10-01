@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://anshika-portfolio.vercel.app/sitemap.xml",
+    sitemap: "https://anshika-portfolio-gules-ten.vercel.app/sitemap.xml",
   };
 }

@@ -86,7 +86,7 @@ export default async function Image() {
               fontWeight: 600,
             }}
           >
-            anshika-portfolio.vercel.app
+            anshika-portfolio-gules-ten.vercel.app
           </div>
         </div>
       </div>

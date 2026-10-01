@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anshika-portfolio.vercel.app"),
+  metadataBase: new URL("https://anshika-portfolio-gules-ten.vercel.app"),
   title: {
     default: "Anshika — AI/ML Engineer & Project Lead",
     template: "%s | Anshika",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://anshika-portfolio.vercel.app",
+    url: "https://anshika-portfolio-gules-ten.vercel.app",
     title: "Anshika — AI/ML Engineer & Project Lead",
     description:
       "Bridging rigorous machine learning pipelines with funded engineering delivery and team leadership.",
@@ -101,7 +101,7 @@ export default function RootLayout({
     "@type": "Person",
     name: "Anshika",
     jobTitle: "AI/ML Engineer & Project Lead",
-    url: "https://anshika-portfolio.vercel.app",
+    url: "https://anshika-portfolio-gules-ten.vercel.app",
     sameAs: [
       "https://github.com/Anshika-17a",
       "https://linkedin.com/in/anshika-suruchi",
