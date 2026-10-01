@@ -27,10 +27,10 @@ html.dark {
   --text-muted: #9E9B93;
   --border-hairline: rgba(237, 235, 230, 0.09);
   --border-strong: rgba(237, 235, 230, 0.22);
-  --accent: #5E8C73;
-  --accent-hover: #75A58B;
-  --accent-tint: rgba(94, 140, 115, 0.12);
-  --accent-border: rgba(94, 140, 115, 0.32);
+  --accent: #85B89D;
+  --accent-hover: #9DCAB2;
+  --accent-tint: rgba(133, 184, 157, 0.14);
+  --accent-border: rgba(133, 184, 157, 0.35);
   --btn-primary-bg: #85B89D;
   --btn-primary-text: #101512;
   color-scheme: dark;
