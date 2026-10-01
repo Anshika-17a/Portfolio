@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Anshika — Personal Portfolio
 
-## Getting Started
+A personal portfolio website for **Anshika**, final-year B.E. student in Artificial Intelligence & Machine Learning at Shri Madhwa Vadiraja Institute of Technology and Management, Udupi (CGPA 8.03/10).
 
-First, run the development server:
+The site is built with an editorial aesthetic for a dual audience:
+1. **AI/ML Engineering roles** — highlighting statistical estimators, parameter identification, model metrics ($R^2 \ge 0.9976$), and production backend services.
+2. **Project / Product / Program Management & APM roles** — showcasing scope ownership, ₹5,00,000 government grant funding, 6-member team leadership, and delivery under tight deadlines.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, React 19, TypeScript)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with custom editorial tokens and warm paper/charcoal themes
+- **Typography**: Google Fonts via `next/font` (`Instrument Serif`, `Geist`, `JetBrains Mono`)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/) with `prefers-reduced-motion` compliance
+- **SEO**: Dynamic Open Graph card generator, `robots.txt`, `sitemap.xml`, and JSON-LD `Person` schema
+- **Audits**: Lighthouse 100 on Performance, Accessibility, Best Practices, and SEO
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Local Development
 
-To learn more about Next.js, take a look at the following resources:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Build and test production bundle**:
+   ```bash
+   npm run build
+   npm run start
+   ```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Where to Edit Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Content lives in typed TypeScript files under `src/content/` so you can update copy, metrics, and case studies without touching component code:
+
+| File | Content |
+|---|---|
+| `src/content/projects.ts` | Case studies (The Problem, What I Built, What It Took to Ship, Tags, Repos) |
+| `src/content/experience.ts` | Leadership roles, team scope, outcomes, dual-track quote, hackathon record |
+| `src/content/skills.ts` | Grouped skill competencies (Languages, ML, Backend, Tools, Delivery) |
+| `src/content/achievements.ts` | Metrics strip data, education degrees, coursework, certifications, contact info |
+| `public/anshika.jpg` | Hero portrait photograph |
+| `public/anshika-resume.pdf` | Downloadable résumé PDF |
+
+---
+
+## Deployment & Updates
+
+The project is configured for continuous deployment on [Vercel](https://vercel.com/):
+
+- **Repository**: Connected to GitHub repository `anshika-portfolio`.
+- **Automatic Redeploy**: Push any commit to the `main` branch:
+  ```bash
+  git add .
+  git commit -m "Update project case study"
+  git push origin main
+  ```
+  Vercel automatically triggers a production build and deploys the new version within ~45 seconds.
