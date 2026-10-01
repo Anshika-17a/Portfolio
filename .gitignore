@@ -23,6 +23,11 @@
 # misc
 .DS_Store
 *.pem
+*.png
+!public/*.png
+!public/*.jpg
+verify_views.js
+lighthouse*.json
 
 # debug
 npm-debug.log*
