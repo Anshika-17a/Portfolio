@@ -13,6 +13,9 @@ export interface Project {
   metricBadge?: string;
   isPaperUnderReview?: boolean;
   summary?: string;
+  builtLabel?: string;
+  shippedLabel?: string;
+  statusBadge?: string;
 }
 
 export const projects: Project[] = [
@@ -89,6 +92,9 @@ export const projects: Project[] = [
     role: "Team Lead (6 Members)",
     period: "2025 – Present",
     metricBadge: "₹5,00,000 Grant · 6-Member Team",
+    statusBadge: "Under Production",
+    builtLabel: "What We're Building",
+    shippedLabel: "What It Takes To Ship",
     problem:
       "Retained surgical items (RSIs), predominantly surgical gauze sponges left inside abdominal cavities, lead to severe septic complications, emergency re-operations, and heavy malpractice claims. Manual sponge counting under intraoperative stress suffers documented failure rates.",
     built:

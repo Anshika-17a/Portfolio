@@ -49,6 +49,12 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
               <span className="font-code text-xs uppercase tracking-wider text-[var(--text-muted)]">
                 {project.period}
               </span>
+              {project.statusBadge && (
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-code uppercase tracking-wider rounded-sm bg-[var(--accent-tint)] text-[var(--accent)] border border-[var(--accent-border)] font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
+                  {project.statusBadge}
+                </span>
+              )}
               {project.metricBadge && (
                 <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-code uppercase tracking-wider rounded-sm bg-[var(--accent-tint)] text-[var(--accent)] border border-[var(--accent-border)] font-medium">
                   {project.metricBadge}
@@ -84,7 +90,7 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
               </p>
             </motion.div>
 
-            {/* Block 4: What I Built */}
+            {/* Block 4: What I Built / What We're Building */}
             <motion.div
               custom={3}
               variants={itemVariants}
@@ -92,14 +98,14 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
             >
               <h4 className="font-code text-xs uppercase tracking-widest text-[var(--text-muted)] font-semibold mb-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                What I Built
+                {project.builtLabel || "What I Built"}
               </h4>
               <p className="text-sm md:text-[0.9375rem] text-[var(--text-ink)] leading-relaxed">
                 {project.built}
               </p>
             </motion.div>
 
-            {/* Block 5: What It Took to Ship */}
+            {/* Block 5: What It Took to Ship / What It Takes to Ship */}
             <motion.div
               custom={4}
               variants={itemVariants}
@@ -107,7 +113,7 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
             >
               <h4 className="font-code text-xs uppercase tracking-widest text-[var(--text-muted)] font-semibold mb-2 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                What It Took To Ship
+                {project.shippedLabel || "What It Took To Ship"}
               </h4>
               <p className="text-sm md:text-[0.9375rem] text-[var(--text-ink)] leading-relaxed">
                 {project.shipped}
@@ -157,6 +163,13 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
                     <polyline points="7 7 17 7 17 17" />
                   </svg>
                 </a>
+              )}
+
+              {project.statusBadge && (
+                <span className="font-code text-xs uppercase tracking-wider text-[var(--text-muted)] flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
+                  {project.statusBadge}
+                </span>
               )}
 
               {project.isPaperUnderReview && (
