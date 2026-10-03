@@ -96,8 +96,30 @@ export const projects: Project[] = [
     shipped:
       "Pitched and secured ₹5,00,000 non-dilutive government innovation funding under Karnataka NAIN 2.0; authored the complete engineering product requirements document (PRD); led sprint planning, subsystem decomposition, and onboarding across 5 cross-functional peers spanning embedded firmware, hardware circuit design, and software telemetry; running milestone reviews with medical domain advisors ahead of bench validation.",
     tags: ["RFID", "Embedded Systems", "Hardware Architecture", "NAIN 2.0"],
-    summary:
-      "Medical hardware-software tracking system preventing retained surgical items (RSIs) during clinical operative procedures.",
+    featured: true,
+  },
+  {
+    slug: "gemma-multimodal-assistant",
+    title: "Applied Generative AI Solution (Gemma)",
+    role: "Hackathon Winner",
+    period: "2026",
+    problem: "Real-world utility and inference efficiency challenges during high-stress 24-hour prototype build sprints.",
+    built: "Applied generative AI architecture utilizing Google Gemma with optimized inference quantization and structured prompting.",
+    shipped: "Built and deployed under a 24-hour sprint; awarded Winner at Google Build with Gemma Hackathon (Kaggle).",
+    tags: ["Google Gemma", "GenAI", "Kaggle", "PyTorch"],
     featured: false,
+    summary: "Hackathon-winning applied generative AI solution built and deployed using Google Gemma under a 24-hour Kaggle sprint.",
+  },
+  {
+    slug: "reality-rewritten-verification",
+    title: "Frontline Verification Intelligence Prototype",
+    role: "Hackathon Winner",
+    period: "2025",
+    problem: "Manual verification bottlenecks in high-frequency document and credential inspection workflows.",
+    built: "Applied AI product providing automated inspection, extraction, and forensic integrity validation.",
+    shipped: "Delivered full working prototype and live demo to the jury, winning 1st place at Reality Rewritten National Hackathon.",
+    tags: ["Computer Vision", "FastAPI", "React", "Python"],
+    featured: false,
+    summary: "National hackathon winner delivering full-stack automated verification intelligence under live jury evaluation.",
   },
 ];
