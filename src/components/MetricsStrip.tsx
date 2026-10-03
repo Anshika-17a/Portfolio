@@ -19,25 +19,7 @@ function MetricBlock({ item }: { item: MetricItem }) {
       return;
     }
 
-    if (item.id === "accuracy") {
-      // Float countup from 0.0000 to 0.9976
-      const duration = 1200;
-      const start = performance.now();
-      const target = item.numericTarget || 0.9976;
-
-      const step = (now: number) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = (target * easeOut).toFixed(4);
-        setDisplayValue(`R² ${current}`);
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          setDisplayValue(item.value);
-        }
-      };
-      requestAnimationFrame(step);
-    } else if (item.numericTarget !== undefined) {
+    if (item.numericTarget !== undefined) {
       // Integer countup
       const duration = 900;
       const start = performance.now();
@@ -65,7 +47,7 @@ function MetricBlock({ item }: { item: MetricItem }) {
   return (
     <div
       ref={ref}
-      className="flex flex-col py-6 md:py-8 px-4 sm:px-6 md:px-8 border-b md:border-b-0 md:border-r border-[var(--border-hairline)] last:border-none"
+      className="flex flex-col py-6 md:py-8 px-4 sm:px-8 md:px-12"
     >
       <div className="font-display text-4xl sm:text-5xl lg:text-6xl text-[var(--text-ink)] tracking-tight leading-none mb-3">
         {displayValue}
@@ -73,7 +55,7 @@ function MetricBlock({ item }: { item: MetricItem }) {
       <div className="font-code text-xs uppercase tracking-widest text-[var(--accent)] font-medium mb-1">
         {item.label}
       </div>
-      <p className="text-xs text-[var(--text-muted)] leading-relaxed max-w-[28ch]">
+      <p className="text-xs text-[var(--text-muted)] leading-relaxed max-w-[32ch]">
         {item.description}
       </p>
     </div>
@@ -86,8 +68,8 @@ export function MetricsStrip() {
       aria-label="Key Metrics"
       className="border-b border-[var(--border-hairline)] bg-[var(--bg-paper-subtle)]/40"
     >
-      <div className="max-w-6xl mx-auto px-2 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+      <div className="max-w-[720px] mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[var(--border-hairline)]">
           {metrics.map((item) => (
             <MetricBlock key={item.id} item={item} />
           ))}

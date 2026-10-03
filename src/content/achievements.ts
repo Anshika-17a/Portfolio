@@ -24,13 +24,6 @@ export interface CertificationItem {
 
 export const metrics: MetricItem[] = [
   {
-    id: "team-led",
-    value: "6",
-    numericTarget: 6,
-    label: "TEAM MEMBERS LED",
-    description: "Multidisciplinary engineers coordinated across hardware, firmware, and software",
-  },
-  {
     id: "funding",
     value: "₹5L",
     prefix: "₹",
@@ -40,18 +33,10 @@ export const metrics: MetricItem[] = [
     description: "Non-dilutive grant under Karnataka New Age Incubation Network (NAIN 2.0)",
   },
   {
-    id: "accuracy",
-    value: "R² 0.9976",
-    prefix: "R² ",
-    numericTarget: 0.9976,
-    label: "MODEL ACCURACY ACHIEVED",
-    description: "Nonlinear CSTR estimation across 3 independent excitation benchmarks",
-  },
-  {
     id: "hackathons",
     value: "3",
     numericTarget: 3,
-    label: "HACKATHONS WON OR PLACED",
+    label: "HACKATHONS WON",
     description: "Including Google Build with Gemma (Kaggle) & Reality Rewritten",
   },
 ];
