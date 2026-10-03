@@ -26,6 +26,9 @@ export const projects: Project[] = [
     role: "Co-author & Lead Estimator",
     period: "Feb 2026 – Present",
     metricBadge: "R² ≥ 0.9976 · 12.3× lower RMSE",
+    statusBadge: "Active Research · In Progress",
+    builtLabel: "What I'm Building",
+    shippedLabel: "What It Takes To Ship",
     problem:
       "Pilot-plant continuous stirred-tank reactors exhibit acute nonlinear kinetic and thermal coupling that standard linear estimators fail to track, risking thermal runaway and degraded conversion during unmodelled parameter drift.",
     built:
