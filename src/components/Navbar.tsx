@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface NavItem {
   label: string;
@@ -10,6 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Work", href: "#work" },
+  { label: "Also Built", href: "#also-built" },
   { label: "Leadership", href: "#leadership" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
@@ -21,14 +23,26 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     // Check initial theme
     const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
+    requestAnimationFrame(() => {
+      setIsDark(isDarkMode);
+    });
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
+
+      // Bottom of page check
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        setActiveSection("contact");
+        return;
+      }
 
       // Section spy
       const sections = navItems.map((item) => item.href.slice(1));
@@ -36,10 +50,11 @@ export function Navbar() {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 180 && rect.bottom >= 180;
+          return rect.top <= 200 && rect.bottom >= 120;
         }
         return false;
       });
+
       if (current) {
         setActiveSection(current);
       } else if (window.scrollY < 200) {
@@ -48,6 +63,7 @@ export function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -83,19 +99,31 @@ export function Navbar() {
         {/* Desktop Nav */}
         <nav
           aria-label="Main Navigation"
-          className="hidden md:flex items-center gap-8 font-code text-xs uppercase tracking-wider text-[var(--text-muted)]"
+          className="hidden md:flex items-center gap-6 lg:gap-8 font-code text-xs uppercase tracking-wider text-[var(--text-muted)]"
         >
           {navItems.map((item) => {
-            const isActive = activeSection === item.href.slice(1);
+            const sectionId = item.href.slice(1);
+            const isActive = activeSection === sectionId;
             return (
               <a
                 key={item.href}
                 href={item.href}
-                className={`link-editorial py-1 transition-colors hover:text-[var(--text-ink)] ${
+                className={`relative py-1 transition-colors hover:text-[var(--text-ink)] ${
                   isActive ? "text-[var(--accent)] font-medium" : ""
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-active-underline"
+                    transition={
+                      shouldReduceMotion
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 380, damping: 30 }
+                    }
+                    className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[var(--accent)]"
+                  />
+                )}
               </a>
             );
           })}

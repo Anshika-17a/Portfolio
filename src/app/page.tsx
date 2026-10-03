@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { MetricsStrip } from "@/components/MetricsStrip";
 import { SelectedWork } from "@/components/SelectedWork";
+import { AlsoBuilt } from "@/components/AlsoBuilt";
 import { LeadershipDelivery } from "@/components/LeadershipDelivery";
 import { Skills } from "@/components/Skills";
 import { Education } from "@/components/Education";
@@ -16,6 +17,7 @@ export default function Home() {
         <Hero />
         <MetricsStrip />
         <SelectedWork />
+        <AlsoBuilt />
         <LeadershipDelivery />
         <Skills />
         <Education />

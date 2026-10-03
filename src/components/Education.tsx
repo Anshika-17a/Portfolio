@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { educationList, certificationsList } from "@/content/achievements";
 
+import { SectionHeadingRule } from "@/components/SectionHeadingRule";
+
 export function Education() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -19,8 +21,9 @@ export function Education() {
             Academic Foundation
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[var(--text-ink)] tracking-tight">
-            Education & Certifications
+            Education &amp; Certifications
           </h2>
+          <SectionHeadingRule className="w-16 sm:w-24 mt-4" />
         </div>
 
         {/* Two Columns: Degree & School on Left, Certifications on Right */}

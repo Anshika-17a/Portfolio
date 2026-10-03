@@ -34,8 +34,8 @@ export const metrics: MetricItem[] = [
   },
   {
     id: "hackathons",
-    value: "3",
-    numericTarget: 3,
+    value: "2",
+    numericTarget: 2,
     label: "HACKATHONS WON",
     description: "Including Google Build with Gemma (Kaggle) & Reality Rewritten",
   },
@@ -72,7 +72,7 @@ export const certificationsList: CertificationItem[] = [
 export const profile = {
   name: "Anshika",
   roleLine: "AI/ML ENGINEER · PROJECT LEAD · UDUPI, INDIA",
-  bio: "Final-year AI & ML engineering student who builds machine learning systems end to end — training and evaluating models, then shipping them as production-style FastAPI/Flask services with auth and a working frontend. Currently running a six-person, ₹5,00,000 government-funded hardware project and co-authoring a journal paper on nonlinear state estimation.",
+  bio: "Final-year AI & ML engineering student. I build models and then ship them as working products.",
   email: "anshikasuruchi@gmail.com",
   githubUrl: "https://github.com/Anshika-17a",
   linkedinUrl: "https://linkedin.com/in/anshika-suruchi",

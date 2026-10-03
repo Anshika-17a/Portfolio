@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { skillCategories } from "@/content/skills";
+import { SectionHeadingRule } from "@/components/SectionHeadingRule";
 
 export function Skills() {
   const shouldReduceMotion = useReducedMotion();
@@ -19,11 +20,12 @@ export function Skills() {
             Core Competencies
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[var(--text-ink)] tracking-tight">
-            Technical Stack & Delivery Capabilities
+            Technical Stack &amp; Delivery Capabilities
           </h2>
+          <SectionHeadingRule className="w-16 sm:w-24 mt-4" />
         </div>
 
-        {/* Grouped Skills List: Mono labels, plain comma-separated text */}
+        {/* Grouped Skills List: Mono labels, items fade in with 25ms stagger */}
         <div className="divide-y divide-[var(--border-hairline)]">
           {skillCategories.map((group, idx) => (
             <motion.div
@@ -46,10 +48,28 @@ export function Skills() {
                 </span>
               </div>
 
-              {/* Plain Comma-Separated Text */}
+              {/* Items staggered by 25ms */}
               <div className="md:col-span-8 lg:col-span-9">
                 <p className="text-base md:text-lg text-[var(--text-ink)] font-normal tracking-normal leading-relaxed">
-                  {group.skills.join(", ")}
+                  {group.skills.map((skill, sIdx) => (
+                    <motion.span
+                      key={skill}
+                      initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: shouldReduceMotion ? 0 : 0.3,
+                        delay: shouldReduceMotion ? 0 : sIdx * 0.025,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
+                      className="inline-block"
+                    >
+                      {skill}
+                      {sIdx < group.skills.length - 1 && (
+                        <span className="text-[var(--text-muted)] select-none mr-2">,</span>
+                      )}
+                    </motion.span>
+                  ))}
                 </p>
               </div>
             </motion.div>

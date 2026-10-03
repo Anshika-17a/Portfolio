@@ -1,37 +1,123 @@
+"use client";
 
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { profile } from "@/content/achievements";
 
+const keywords = [
+  "Machine learning systems",
+  "Production APIs",
+  "Nonlinear state estimation",
+  "Team leadership",
+  "Shipping under deadline",
+];
+
 export function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const nameLetters = Array.from(profile.name);
+
   return (
     <section
       aria-label="Introduction"
-      className="pt-28 pb-16 md:pt-40 md:pb-24 border-b border-[var(--border-hairline)]"
+      className="pt-24 pb-12 lg:pt-28 lg:pb-16 border-b border-[var(--border-hairline)] min-h-[calc(100vh-5rem)] flex items-center"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="max-w-6xl mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Two thirds measure on desktop */}
-          <div className="lg:col-span-8 flex flex-col">
-            {/* 1. Name */}
-            <h1 className="font-display text-[clamp(2.75rem,7vw,4.5rem)] leading-[1.05] tracking-tight text-[var(--text-ink)] mb-4">
-              {profile.name}
+          <div className="lg:col-span-8 flex flex-col justify-center">
+            {/* 1. Name: Character-level fade with 8px rise, staggered 30ms */}
+            <h1 className="font-display text-[clamp(2.75rem,7vw,4.5rem)] leading-[1.05] tracking-tight text-[var(--text-ink)] mb-3">
+              {nameLetters.map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { duration: 0.35, delay: i * 0.03, ease: [0.16, 1, 0.3, 1] }
+                  }
+                  className="inline-block"
+                >
+                  {char}
+                </motion.span>
+              ))}
             </h1>
 
-            {/* 2. Role line */}
-            <div className="font-code text-xs md:text-sm uppercase tracking-widest text-[var(--accent)] font-medium mb-8">
+            {/* 2. Role line: Mono uppercase letter-spaced */}
+            <motion.div
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.4, delay: 0.08, ease: [0.16, 1, 0.3, 1] }
+              }
+              className="font-code text-xs md:text-sm uppercase tracking-widest text-[var(--accent)] font-medium mb-5"
+            >
               {profile.roleLine}
+            </motion.div>
+
+            {/* 3. Keyword row: 5 phrases separated by accent dot, 40ms stagger */}
+            <div
+              className="flex flex-wrap items-center gap-x-2 gap-y-1.5 font-code text-xs sm:text-sm text-[var(--text-ink)] mb-5"
+              aria-label="Core areas of expertise"
+            >
+              {keywords.map((kw, i) => (
+                <div key={kw} className="inline-flex items-center">
+                  <motion.span
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={
+                      shouldReduceMotion
+                        ? { duration: 0 }
+                        : { duration: 0.35, delay: 0.16 + i * 0.04, ease: [0.16, 1, 0.3, 1] }
+                    }
+                    className="font-medium"
+                  >
+                    {kw}
+                  </motion.span>
+                  {i < keywords.length - 1 && (
+                    <span
+                      aria-hidden="true"
+                      className="text-[var(--accent)] font-bold px-1.5 select-none"
+                    >
+                      ·
+                    </span>
+                  )}
+                </div>
+              ))}
             </div>
 
-            {/* 3. Summary */}
-            <p className="text-lg md:text-xl text-[var(--text-ink)] max-w-[65ch] leading-[1.65] mb-10 text-balance">
-              {profile.bio}
-            </p>
+            {/* 4. One short line of body text */}
+            <motion.p
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.4, delay: 0.24, ease: [0.16, 1, 0.3, 1] }
+              }
+              className="text-base sm:text-lg text-[var(--text-muted)] max-w-[58ch] leading-relaxed mb-8"
+            >
+              Final-year AI &amp; ML engineering student. I build models and then ship them as working products.
+            </motion.p>
 
-            {/* 4. Primary CTAs */}
-            <div className="hero-step-4 flex flex-wrap items-center gap-6 mb-12">
+            {/* 5. Primary CTAs */}
+            <motion.div
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] }
+              }
+              className="flex flex-wrap items-center gap-6 mb-8"
+            >
               <a
                 href="#work"
-                className="inline-flex items-center justify-center px-6 py-3.5 bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] text-sm font-semibold rounded-sm hover:opacity-95 transition-opacity focus-visible:outline-none"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[var(--btn-primary-bg)] text-[var(--btn-primary-text)] text-sm font-semibold rounded-sm hover:opacity-95 transition-opacity focus-visible:outline-none"
               >
                 View work
                 <svg
@@ -75,10 +161,19 @@ export function Hero() {
                   <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
               </a>
-            </div>
+            </motion.div>
 
-            {/* 5. Contact links */}
-            <div className="hero-step-5 flex flex-wrap items-center gap-6 pt-6 border-t border-[var(--border-hairline)] text-xs font-code uppercase tracking-wider text-[var(--text-muted)]">
+            {/* 6. Social & Contact links */}
+            <motion.div
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.4, delay: 0.48, ease: [0.16, 1, 0.3, 1] }
+              }
+              className="flex flex-wrap items-center gap-6 pt-5 border-t border-[var(--border-hairline)] text-xs font-code uppercase tracking-wider text-[var(--text-muted)]"
+            >
               <a
                 href={`mailto:${profile.email}`}
                 className="link-editorial hover:text-[var(--text-ink)]"
@@ -153,37 +248,46 @@ export function Hero() {
                 </svg>
                 LinkedIn
               </a>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Right Column: Portrait Photo with editorial offset rule */}
-          <div className="hero-step-photo lg:col-span-4 flex justify-center lg:justify-end w-full">
-            <div className="relative group max-w-[280px] sm:max-w-[320px] w-full">
-              {/* Editorial accent-tinted offset frame */}
+          {/* Right Column: Photo reveal */}
+          <div className="lg:col-span-4 flex justify-center lg:justify-end w-full">
+            <div className="relative group max-w-[260px] sm:max-w-[300px] w-full">
+              {/* Editorial accent frame: draws in 200ms after photo */}
               <div
                 aria-hidden="true"
-                className="absolute inset-0 translate-x-3 translate-y-3 rounded-lg border border-[var(--accent)] opacity-40 group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300 pointer-events-none"
+                className="frame-accent-reveal absolute inset-0 translate-x-3 translate-y-3 rounded-lg border border-[var(--accent)] group-hover:translate-x-4 group-hover:translate-y-4 transition-transform duration-300 pointer-events-none"
               />
 
-              {/* Photo Container */}
-              <div className="relative rounded-lg overflow-hidden border border-[var(--border-hairline)] bg-[var(--bg-card)] shadow-sm">
+              {/* Photo Container: Wipes in from bottom behind clipping mask over 700ms */}
+              <div className="photo-wipe-reveal relative rounded-lg overflow-hidden border border-[var(--border-hairline)] bg-[var(--bg-card)] shadow-sm">
                 <Image
                   src="/anshika.jpg"
                   alt="Portrait of Anshika"
-                  width={320}
-                  height={400}
+                  width={300}
+                  height={375}
                   priority
                   fetchPriority="high"
                   className="w-full h-auto object-cover aspect-[4/5] filter saturate-[0.92] contrast-[1.03] transition-all duration-500 group-hover:saturate-100"
-                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 320px"
+                  sizes="(max-width: 640px) 260px, 300px"
                 />
               </div>
 
               {/* Subtle caption mark */}
-              <div className="mt-4 flex items-center justify-between font-code text-[11px] text-[var(--text-muted)] tracking-wider">
+              <motion.div
+                initial={shouldReduceMotion ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.4, delay: 0.6 }
+                }
+                className="mt-3 flex items-center justify-between font-code text-[11px] text-[var(--text-muted)] tracking-wider"
+              >
                 <span>ANSHIKA · SMVITM UDUPI</span>
                 <span className="text-[var(--accent)]">2023–2027</span>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

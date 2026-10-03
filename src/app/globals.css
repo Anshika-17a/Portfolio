@@ -119,25 +119,38 @@ body {
   border-radius: 2px;
 }
 
-/* Hero entrance keyframes */
-@keyframes heroEntrance {
+/* Photo wipe & frame reveal compositor animations */
+@keyframes photoWipe {
   0% {
-    opacity: 0.4;
-    transform: translateY(10px);
+    clip-path: inset(100% 0% 0% 0%);
+    transform: scale(1.04);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    clip-path: inset(0% 0% 0% 0%);
+    transform: scale(1);
+  }
+}
+
+@keyframes frameReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero-step-1 { animation: heroEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
-  .hero-step-2 { animation: heroEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.06s both; }
-  .hero-step-3 { animation: heroEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }
-  .hero-step-4 { animation: heroEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
-  .hero-step-5 { animation: heroEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both; }
-  .hero-step-photo { animation: heroEntrance 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+  .photo-wipe-reveal {
+    animation: photoWipe 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+    will-change: clip-path, transform;
+  }
+  .frame-accent-reveal {
+    animation: frameReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.52s both;
+    will-change: opacity, transform;
+  }
 }
 
 /* Respect reduced motion */

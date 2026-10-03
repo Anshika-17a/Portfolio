@@ -1,6 +1,7 @@
 "use client";
 
 import { profile } from "@/content/achievements";
+import { SectionHeadingRule } from "@/components/SectionHeadingRule";
 
 export function Contact() {
   return (
@@ -14,9 +15,10 @@ export function Contact() {
           <div className="font-code text-xs uppercase tracking-widest text-[var(--accent)] font-medium mb-3">
             Contact
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-ink)] tracking-tight mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-ink)] tracking-tight mb-2">
             Get in touch
           </h2>
+          <SectionHeadingRule className="w-16 sm:w-24 mb-6" />
           <p className="text-base text-[var(--text-muted)] mb-8 leading-relaxed">
             For technical discussions on machine learning systems, estimation benchmarks, or project engineering roles.
           </p>

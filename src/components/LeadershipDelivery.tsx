@@ -7,6 +7,8 @@ import {
   dualTrackQuote,
 } from "@/content/experience";
 
+import { SectionHeadingRule } from "@/components/SectionHeadingRule";
+
 export function LeadershipDelivery() {
   const shouldReduceMotion = useReducedMotion();
 
@@ -22,9 +24,10 @@ export function LeadershipDelivery() {
           <div className="font-code text-xs uppercase tracking-widest text-[var(--accent)] font-medium mb-3">
             Execution & Scope Ownership
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[var(--text-ink)] tracking-tight mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-[var(--text-ink)] tracking-tight mb-4">
             Leadership & Delivery
           </h2>
+          <SectionHeadingRule className="w-16 sm:w-24 mb-6" />
 
           {/* Dual-track honest quote */}
           <blockquote className="border-l-2 border-[var(--accent)] pl-4 py-1 text-base md:text-lg italic text-[var(--text-ink)] font-display max-w-[65ch]">

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Geist, JetBrains_Mono } from "next/font/google";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -153,6 +154,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col selection:bg-[var(--accent)] selection:text-white antialiased">
+        <ScrollProgress />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--bg-card)] focus:text-[var(--text-ink)] focus:border focus:border-[var(--border-hairline)]"
